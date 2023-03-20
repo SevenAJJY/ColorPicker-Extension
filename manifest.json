@@ -3,6 +3,9 @@
     "name": "Color Picker",
     "description": "A Simple Color Picker Extension. Easily Pick Any Color Of The Screen, View The Chrosen Colors, And Copy Or Clear Them With a Single Click.",
     "version": "1.0",
+    "background": {
+        "service_worker": "background.js"
+    },
     "action": {
         "default_popup": "index.html"
     },
@@ -11,5 +14,13 @@
         "32": "icons/icon32.png",
         "48": "icons/icon64.png",
         "128": "icons/icon128.png"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+9",
+                "mac": "Command+Shift+9"
+            }
+        }
     }
 }

@@ -64,7 +64,8 @@ body.t-dark {
     box-sizing: border-box;
 }
 
-body {
+
+/* body {
     font-size: var(--fs-md);
     color: var(--text-dark-gray);
     -webkit-text-size-adjust: 100%;
@@ -72,7 +73,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
+} */
 
 a {
     color: var(--main-color);

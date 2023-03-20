@@ -48,7 +48,7 @@ const activateEyeDropper = async() => {
     try {
         const eyeDropper = new EyeDropper();
         const { sRGBHex } = await eyeDropper.open();
-        navigator.clipboard.writeText(sRGBHex);
+        await navigator.clipboard.writeText(sRGBHex);
 
         // Adding the color to the list if it doesn't already exist
         if (!pickedColors.includes(sRGBHex)) {
@@ -66,6 +66,7 @@ const clearAllColors = () => {
     localStorage.setItem('picked-colors', JSON.stringify(pickedColors));
     pickedColorContainer.classList.add('hide');
 }
+
 
 colorPickerBtn.addEventListener('click', activateEyeDropper);
 clearAll.addEventListener('click', clearAllColors);
