@@ -4,19 +4,24 @@
 
 /************ Variables *************/
 
- :root {
-    --hue: 200;
+:root {
+    --hue: 266;
     --satueation: 70%;
     --lightness: 55%;
     --main-color: hsl(var(--hue), var(--satueation), var(--lightness));
+    --main-color-dcv: hsl(var(--hue) var(--satueation) var(--lightness) / 82%);
+    --main-color-light: hsl(var(--hue) var(--satueation) var(--lightness) / 31%);
+    --main-color-x-light: hsl(var(--hue) var(--satueation) var(--lightness) / 12%);
+    --gradient-hover-img: to bottom, hsl(var(--hue) var(--satueation) var(--lightness) / 1%) 0, hsl(var(--hue) var(--satueation) var(--lightness) / 25%) 25%, hsl(var(--hue) var(--satueation) var(--lightness) / 80%) 75%, hsl(var(--hue) var(--satueation) var(--lightness) / 100%) 100%;
     /************ Text Colors *************/
     --text-white: hsl(0, 0%, 100%);
     --text-light-gray: hsl(0, 0%, 96%);
     --text-x-dark-gray: hsl(0, 0%, 10%);
     --text-dark-gray: hsl(0, 0%, 20%);
+    --dark-light: hsl(0, 0%, 84%);
     /************ bg Colors *************/
     --body-bg-color: hsl(var(--hue), 60%, 94%);
-    --bg-body: hsl(var(--hue), 60%, 96%);
+    --bg-color: hsl(var(--hue), 60%, 96%);
     --bg-white: hsl(0, 0%, 100%);
     /************ Border Colors *************/
     --border-color: hsl(var(--hue), 48%, 80%);
@@ -42,7 +47,7 @@ body.t-dark {
     --text-dark-gray: hsl(0, 0%, 84%);
     /************ bg Colors *************/
     --body-bg-color: hsl(var(--hue), 20%, 10%);
-    --bg-body: hsl(var(--hue), 13%, 17%);
+    --bg-color: hsl(var(--hue), 13%, 17%);
     /************ Border Colors *************/
     --border-color: hsl(var(--hue), 15%, 30%);
     /************ shadow Colors *************/
@@ -64,8 +69,7 @@ body.t-dark {
     box-sizing: border-box;
 }
 
-
-/* body {
+body {
     font-size: var(--fs-md);
     color: var(--text-dark-gray);
     -webkit-text-size-adjust: 100%;
@@ -73,7 +77,7 @@ body.t-dark {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-} */
+}
 
 a {
     color: var(--main-color);
@@ -88,6 +92,71 @@ ul {
     width: 350px;
 }
 
+.header {
+    width: 100%;
+    background: var(--main-color);
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo a {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    display: block;
+    transform: scale(0.9);
+    letter-spacing: 2px;
+    color: var(--body-bg-color);
+    font-family: inherit;
+}
+
+.header .logo a span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dark-gray);
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+}
+
+.header .logo a span::before {
+    content: "";
+    position: absolute;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-top: 2px solid var(--text-dark-gray);
+    border-right: 2px solid transparent;
+    border-left: 0px solid transparent;
+}
+
+.header .logo a span::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--text-dark-gray);
+    width: 8px;
+    height: 8px;
+    box-shadow: 0px 0px 5px var(--main-color);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    z-index: 9;
+}
+
+header .dark-mode i {
+    color: var(--dark-light);
+    font-size: 1.3rem;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
 .popup :where(.picker,
 header,
 .color,
@@ -99,7 +168,7 @@ header,
 .popup .picker {
     padding: 30px 0;
     justify-content: center;
-    background-color: var(--body-bg-color);
+    background-color: var(--bg-color);
 }
 
 .picker #color-picker {
@@ -107,14 +176,17 @@ header,
     border: none;
     color: #fff;
     font-size: 1rem;
-    padding: 10px 20px;
+    width: 60px;
+    height: 60px;
+    /* padding: 10px 20px; */
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50%;
     background: var(--main-color);
 }
 
 .popup .picked-colors {
-    margin: 10px 15px;
+    padding: 10px 15px;
+    background: var(--bg-color);
 }
 
 .popup .picked-colors:is(.hide) {

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Picker Extension</title>
     <!-- css external link -->
+    <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <!-- external js  -->
     <script src="./js/main.js" defer></script>
@@ -15,9 +16,18 @@
 <body>
 
     <div class="popup">
-        <h3>SevenAJJY Color Picker</h3>
+        <header class="header">
+            <div class="logo">
+                <a href="https://github.com/SevenAJJY">seven<span>ajjy</span></a>
+            </div>
+            <div class="dark-mode">
+                <i class="fa-regular fa-sun"></i>
+            </div>
+        </Header>
         <div class="picker">
-            <button id="color-picker">Pick Color</button>
+            <button id="color-picker">
+                <i class="fa-solid fa-eye-dropper fa-shake fa-lg"></i>
+            </button>
         </div>
         <div class="picked-colors hide">
             <header>

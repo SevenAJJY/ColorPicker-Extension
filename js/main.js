@@ -3,6 +3,7 @@ const colorList = document.querySelector('.all-colors');
 const clearAll = document.querySelector('.clear-all');
 const pickedColors = JSON.parse(localStorage.getItem('picked-colors') || "[]");
 const pickedColorContainer = document.querySelector('.picked-colors');
+const darkLightMode = document.querySelector('.dark-mode i');
 
 
 const copyColor = (element) => {
@@ -54,6 +55,8 @@ const activateEyeDropper = async() => {
         if (!pickedColors.includes(sRGBHex)) {
             pickedColors.push(sRGBHex);
             localStorage.setItem('picked-colors', JSON.stringify(pickedColors));
+            console.log(JSON.stringify(pickedColors).charAt(1));
+            colorPickerBtn.style.background = JSON.stringify(pickedColors);
             showColors();
         }
     } catch (error) {
@@ -67,6 +70,39 @@ const clearAllColors = () => {
     pickedColorContainer.classList.add('hide');
 }
 
+const themeLightDark = (e) => {
+    const themeDark = () => {
+        if (localStorage.getItem('t_dark') !== 'false') {
+            document.body.classList.add('t-dark');
+        } else {
+            document.body.classList.remove('t-dark');
+        }
+    }
 
+
+    if (e.currentTarget.classList.contains('fa-sun')) {
+        e.currentTarget.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('t_dark', true);
+        themeDark();
+    } else {
+        e.currentTarget.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('t_dark', false);
+        themeDark();
+    }
+
+
+    if (localStorage.getItem('t_dark') !== null) {
+        themeDark();
+    }
+};
+
+
+if (localStorage.getItem('t_dark') == 'true') {
+    darkLightMode.classList.replace('fa-sun', 'fa-moon');
+    document.body.classList.add('t-dark');
+}
+
+
+darkLightMode.addEventListener('click', (e) => themeLightDark(e));
 colorPickerBtn.addEventListener('click', activateEyeDropper);
 clearAll.addEventListener('click', clearAllColors);
