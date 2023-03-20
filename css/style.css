@@ -1,0 +1,157 @@
+/************ Fonts *************/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+/************ Variables *************/
+
+ :root {
+    --hue: 200;
+    --satueation: 70%;
+    --lightness: 55%;
+    --main-color: hsl(var(--hue), var(--satueation), var(--lightness));
+    /************ Text Colors *************/
+    --text-white: hsl(0, 0%, 100%);
+    --text-light-gray: hsl(0, 0%, 96%);
+    --text-x-dark-gray: hsl(0, 0%, 10%);
+    --text-dark-gray: hsl(0, 0%, 20%);
+    /************ bg Colors *************/
+    --body-bg-color: hsl(var(--hue), 60%, 94%);
+    --bg-body: hsl(var(--hue), 60%, 96%);
+    --bg-white: hsl(0, 0%, 100%);
+    /************ Border Colors *************/
+    --border-color: hsl(var(--hue), 48%, 80%);
+    /************ shadow Colors *************/
+    --shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.3);
+    --focus-shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.6);
+    /************ font size *************/
+    --fs-4xl: 50px;
+    --fs-3xl: 35px;
+    --fs-2xl: 26px;
+    --fs-1xl: 20px;
+    --fs-lg: 18px;
+    --fs-md: 16px;
+    --fs-sm: 14px;
+}
+
+
+/************ Override variables for dark theme *************/
+
+body.t-dark {
+    /************ Text Colors *************/
+    --text-x-dark-gray: hsl(0, 0%, 94%);
+    --text-dark-gray: hsl(0, 0%, 84%);
+    /************ bg Colors *************/
+    --body-bg-color: hsl(var(--hue), 20%, 10%);
+    --bg-body: hsl(var(--hue), 13%, 17%);
+    /************ Border Colors *************/
+    --border-color: hsl(var(--hue), 15%, 30%);
+    /************ shadow Colors *************/
+    --shadow: 0 0 10px hsla(var(--hue), 19%, 7%, 0.9);
+}
+
+
+/************ base *************/
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--fs-md);
+    color: var(--text-dark-gray);
+    -webkit-text-size-adjust: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.popup {
+    max-width: 350px;
+    width: 100%;
+}
+
+.popup :where(.picker,
+header,
+.color,
+.all-colors) {
+    display: flex;
+    align-items: center;
+}
+
+.popup .picker {
+    padding: 30px 0;
+    justify-content: center;
+    background-color: var(--body-bg-color);
+}
+
+.picker #color-picker {
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: var(--main-color);
+}
+
+.popup .picked-colors {
+    margin: 10px 15px;
+}
+
+.popup .picked-colors:is(.hide) {
+    display: none;
+}
+
+.picked-colors header {
+    justify-content: space-between;
+}
+
+.picked-colors header .clear-all {
+    color: var(--main-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.picked-colors .all-colors {
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.picked-colors .all-colors .color {
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: calc(100% / 3);
+}
+
+.picked-colors .all-colors .rect {
+    display: block;
+    height: 22px;
+    width: 22px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+.picked-colors .all-colors .value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
