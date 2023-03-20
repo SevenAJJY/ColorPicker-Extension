@@ -1,0 +1,6 @@
+.DS_store
+*.sw*
+**/*.log
+coverage
+.next
+out

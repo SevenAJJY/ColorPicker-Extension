@@ -43,6 +43,7 @@ showColors();
 //     // return lisTag;
 // }
 
+// this function run in the web tabs (output in console)
 const activateEyeDropper = async() => {
     try {
         const eyeDropper = new EyeDropper();
