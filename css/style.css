@@ -84,8 +84,7 @@ ul {
 }
 
 .popup {
-    max-width: 350px;
-    width: 100%;
+    width: 350px;
 }
 
 .popup :where(.picker,
