@@ -37,28 +37,12 @@ body.t-dark {
     padding: 0;
 }
 
-::before,
-::after {
-    box-sizing: border-box;
-}
-
 body {
-    font-size: var(--fs-md);
     color: var(--text-dark-gray);
-    -webkit-text-size-adjust: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
-
-a {
-    color: var(--main-color);
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
 }
 
 .popup {
@@ -68,7 +52,6 @@ ul {
 .header {
     width: 100%;
     background: var(--main-color);
-    text-align: center;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -83,8 +66,9 @@ ul {
     display: block;
     transform: scale(0.9);
     letter-spacing: 2px;
-    color: var(--body-bg-color);
+    color: var(--bg-color);
     font-family: inherit;
+    text-decoration: none;
 }
 
 .header .logo a span {
@@ -126,7 +110,6 @@ ul {
 header .dark-mode i {
     color: var(--dark-light);
     font-size: 1.3rem;
-    transition: all .3s ease;
     cursor: pointer;
 }
 
@@ -151,7 +134,6 @@ header,
     font-size: 1rem;
     width: 60px;
     height: 60px;
-    /* padding: 10px 20px; */
     cursor: pointer;
     border-radius: 50%;
     background: var(--main-color);
@@ -179,6 +161,7 @@ header,
 .picked-colors .all-colors {
     margin: 10px 0;
     flex-wrap: wrap;
+    list-style: none;
 }
 
 .picked-colors .all-colors .color {

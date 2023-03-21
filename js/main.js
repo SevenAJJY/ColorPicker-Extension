@@ -49,6 +49,7 @@ const getInstanceFromEyeDropper = () => {
     document.body.style.display = 'none';
     setTimeout(async() => {
         try {
+            //The EyeDropper interface represents an instance of an eyedropper tool that can be opened and used by the user to select colors from the screen.
             const eyeDropper = new EyeDropper();
             const { sRGBHex } = await eyeDropper.open();
             await navigator.clipboard.writeText(sRGBHex);
@@ -74,6 +75,7 @@ const clearAllColors = () => {
 }
 
 const themeLightDark = (e) => {
+
     const themeDark = () => {
         if (localStorage.getItem('t_dark') !== 'false') {
             document.body.classList.add('t-dark');
@@ -107,5 +109,7 @@ if (localStorage.getItem('t_dark') == 'true') {
 
 
 darkLightMode.addEventListener('click', (e) => themeLightDark(e));
+
 colorPickerBtn.addEventListener('click', getInstanceFromEyeDropper);
+
 clearAll.addEventListener('click', clearAllColors);
