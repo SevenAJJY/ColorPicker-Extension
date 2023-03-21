@@ -1,8 +1,8 @@
 # ColorPicker-Extension
 
- <div style="margin: 0 auto;" >
+ <center style="margin: 0 auto;" >
   <img src="./icons/icon128.png"/>
- </div>
+ </center>
  
 
 #
