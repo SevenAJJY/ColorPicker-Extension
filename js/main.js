@@ -14,12 +14,8 @@ const copyColor = (element) => {
 
 const showColors = () => {
     if (!pickedColors.length) return;
-    colorList.innerHTML = pickedColors.map(color => `
-    <li class="color">
-        <span class="rect" style="background: ${color}; border: 1px solid ${color == '#ffffff' ? '#ccc' : color}"></span>
-        <span class="value" data-color="${color}">${color}</span>
-    </li>
-`).join("");
+
+    showColorsChosen(pickedColors);
 
     pickedColorContainer.classList.remove('hide');
 
@@ -28,40 +24,47 @@ const showColors = () => {
     });
 }
 showColors();
-// function createLiTag(color) {
-//     const lisTag = [];
-//     let liTag = document.createElement('li');
-//     liTag.className = "color";
-//     let spanRect = document.createElement('span');
-//     spanRect.className = "rect";
-//     spanRect.style.backgroundColor = color;
-//     let spanValue = document.createElement('span');
-//     spanValue.className = "value";
-//     liTag.appendChild(spanRect);
-//     liTag.appendChild(spanValue).appendChild(document.createTextNode(color));
-//     lisTag.push(liTag);
-//     console.log(lisTag);
-//     // return lisTag;
-// }
+
+function showColorsChosen(allColors) {
+    colorList.innerHTML = "";
+    for (let i = 0; i < allColors.length; i++) {
+        let liTag = document.createElement('li');
+        liTag.className = "color";
+        let spanRect = document.createElement('span');
+        spanRect.className = "rect";
+        spanRect.setAttribute('style', `background: ${allColors[i]}; border: 1px solid ${allColors[i] == '#ffffff' ? '#ccc' : allColors[i]}`);
+        spanRect.style.backgroundColor = allColors[i];
+        let spanValue = document.createElement('span');
+        spanValue.className = "value";
+        spanValue.setAttribute('data-color', allColors[i]);
+        liTag.appendChild(spanRect);
+        liTag.appendChild(spanValue).appendChild(document.createTextNode(allColors[i]));
+        colorList.appendChild(liTag);
+    }
+}
+
 
 // this function run in the web tabs (output in console)
-const activateEyeDropper = async() => {
-    try {
-        const eyeDropper = new EyeDropper();
-        const { sRGBHex } = await eyeDropper.open();
-        await navigator.clipboard.writeText(sRGBHex);
+const getInstanceFromEyeDropper = () => {
+    document.body.style.display = 'none';
+    setTimeout(async() => {
+        try {
+            const eyeDropper = new EyeDropper();
+            const { sRGBHex } = await eyeDropper.open();
+            await navigator.clipboard.writeText(sRGBHex);
 
-        // Adding the color to the list if it doesn't already exist
-        if (!pickedColors.includes(sRGBHex)) {
-            pickedColors.push(sRGBHex);
-            localStorage.setItem('picked-colors', JSON.stringify(pickedColors));
-            console.log(JSON.stringify(pickedColors).charAt(1));
-            colorPickerBtn.style.background = JSON.stringify(pickedColors);
-            showColors();
+            // Adding the color to the list if it doesn't already exist
+            if (!pickedColors.includes(sRGBHex)) {
+                pickedColors.push(sRGBHex);
+                localStorage.setItem('picked-colors', JSON.stringify(pickedColors));
+                showColors();
+            }
+        } catch (error) {
+            console.log(error);
         }
-    } catch (error) {
-        console.log(error);
-    }
+        document.body.style.display = 'block';
+    }, 5);
+
 }
 
 const clearAllColors = () => {
@@ -104,5 +107,5 @@ if (localStorage.getItem('t_dark') == 'true') {
 
 
 darkLightMode.addEventListener('click', (e) => themeLightDark(e));
-colorPickerBtn.addEventListener('click', activateEyeDropper);
+colorPickerBtn.addEventListener('click', getInstanceFromEyeDropper);
 clearAll.addEventListener('click', clearAllColors);
