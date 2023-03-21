@@ -37,10 +37,10 @@ Chrome settings pages, and the Chrome Web Store.
  <p align="center">
   <img src="/icons/colorPicker_ext.PNG"/>
 </p>
- <p align="center">
-    <video width="320" height="240" autoplay muted>
-        <source src="./icons/readme.mp4" type="video/mp4">
-        <source src="./icons/readme.ogg" type="video/ogg">
-  </video>
-</p>
 
+-----
+
+<p align="center">
+Give the extension a :star: if you liked it.<br>
+Made with :heart: and javascript.
+</p>
