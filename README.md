@@ -1,10 +1,6 @@
 # ColorPicker-Extension
 
-<div>
-  ![CHEESE!](./icons/icon128.png)
- </div>
- 
- <div style="text-align: center" >
+ <div style="margin: 0 auto;" >
   <img src="./icons/icon128.png"/>
  </div>
  
