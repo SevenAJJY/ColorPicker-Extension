@@ -39,8 +39,8 @@ Chrome settings pages, and the Chrome Web Store.
 </p>
  <p align="center">
     <video id="video1" width="100%">
-        <source src="readme.mp4" type="video/mp4">
-        <source src="readme.ogg" type="video/ogg">
+        <source src="./icons/readme.mp4" type="video/mp4">
+        <source src="./icons/readme.ogg" type="video/ogg">
   </video>
 </p>
 
