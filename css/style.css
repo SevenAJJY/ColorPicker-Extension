@@ -13,7 +13,7 @@
     --text-dark-gray: hsl(0, 0%, 20%);
     --dark-light: hsl(0, 0%, 84%);
     /************ bg Colors *************/
-    --body-bg-color: hsl(var(--hue), 60%, 94%);
+    --body-bg-color: hsl(var(--hue), 70%, 89%);
     --bg-color: hsl(var(--hue), 60%, 96%);
 }
 
@@ -39,10 +39,10 @@ body.t-dark {
 
 body {
     color: var(--text-dark-gray);
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
 .popup {
@@ -166,8 +166,16 @@ header,
 
 .picked-colors .all-colors .color {
     cursor: pointer;
-    margin-bottom: 10px;
+    padding: 5px;
     width: calc(100% / 3);
+    transition: all .3s ease;
+}
+
+.picked-colors .all-colors .color:where(:hover) {
+    background: var(--body-bg-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: hsl(0, 0%, 20%);
 }
 
 .picked-colors .all-colors .rect {
