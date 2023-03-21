@@ -1,8 +1,6 @@
-# ColorPicker-Extension
-
-
  <p align="center">
   <img src="./icons/icon128.png"/>
+  <h3 align="center">ColorPicker-Extension</h3>
 </p>
 
 #
