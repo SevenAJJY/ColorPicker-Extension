@@ -38,7 +38,7 @@ Chrome settings pages, and the Chrome Web Store.
   <img src="/icons/colorPicker_ext.PNG"/>
 </p>
  <p align="center">
-    <video id="video1" width="100%">
+    <video width="320" height="240" autoplay muted>
         <source src="./icons/readme.mp4" type="video/mp4">
         <source src="./icons/readme.ogg" type="video/ogg">
   </video>
